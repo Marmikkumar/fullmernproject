@@ -1,4 +1,5 @@
 const express= require("express");
+const bcrypt = require("bcrypt");
 const router = express.Router();
 
 const User= require("../Model/users");
@@ -33,6 +34,34 @@ router.post('/register',(req,res)=>{
             }).catch((err)=>{return res.status(501).json({error: "failed to register"})})
         }).catch((err)=>{console.log(err)})
     
+})
+
+router.post('/Login', async (req,res)=>{
+    const {email,password} = req.body;
+
+    if(!email || !password){
+        return res.status(400).json("invalid details");
+    }
+
+    try{
+        const loginexist = await User.findOne({email:email});
+        
+        if(loginexist){
+
+            const match = await bcrypt.compare(password,loginexist.password);
+
+            if(match){
+                return res.status(202).json("Login successful");
+            }
+        }
+        return res.status(400).json("invalid email or password");
+
+    }catch(err){
+        res.status(400).json("invalid details");
+        console.log(err);
+    }
+
+
 })
 
 router.get('/about',middleware,(req,res)=>{
