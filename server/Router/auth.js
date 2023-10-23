@@ -1,6 +1,7 @@
 const express= require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
 
 const User= require("../Model/users");
 
@@ -12,6 +13,8 @@ const middleware= (req,res,next) =>{
 router.get('/',(req,res)=>{
     res.send("hello to home page");
 })
+
+
 
 router.post('/register',(req,res)=>{
 
@@ -36,8 +39,11 @@ router.post('/register',(req,res)=>{
     
 })
 
+
+
 router.post('/Login', async (req,res)=>{
     const {email,password} = req.body;
+    let token;
 
     if(!email || !password){
         return res.status(400).json("invalid details");
@@ -47,9 +53,16 @@ router.post('/Login', async (req,res)=>{
         const loginexist = await User.findOne({email:email});
         
         if(loginexist){
-
             const match = await bcrypt.compare(password,loginexist.password);
 
+            token= await loginexist.generateAuthToken();
+            console.log(token);
+
+            res.cookie("jwtoken",token,{
+                expires:new Date(Date.now()+25892000000),
+                httpOnly:true
+            });
+        
             if(match){
                 return res.status(202).json("Login successful");
             }
