@@ -1,0 +1,188 @@
+body {
+  padding: 0%;
+  margin: 0%;
+  overflow-x: hidden;
+  background-color: antiquewhite;
+}
+
+.Navbar {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+}
+
+.Navbar img {
+  margin: 2vh;
+}
+
+.link {
+  display: flex;
+  list-style: none;
+  cursor: pointer;
+}
+
+.link li {
+  margin-left: 1.5vw;
+  font-size: 1.2rem;
+  color: rgb(68, 67, 67);
+}
+
+
+
+.icon i {
+  margin-left: 1vh;
+  color: rgb(68, 67, 67);
+}
+
+
+/* ---------------------------------------------   Home ----------------------------------------------------- */
+
+.hometitle{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.hometitle p{
+  font-size: 1.5rem;
+}
+
+.hometitle h4{
+  color: blue;
+}
+
+/* ----------------------------------------   Registration  ---------------------------------------- */
+
+.signbox, .loginbox{
+  /* border: 2px solid black; */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 10px 10px 5px rgb(223, 220, 220);
+
+}
+
+.signimg ,.loginimg{
+  width: 50%;
+}
+
+.signimg img , .loginimg img{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 60%;
+  width: 90%;
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px rgb(189, 189, 189);
+  border: none;
+}
+
+.signbox{
+  width: 45%;
+  height: 65%;
+}
+
+.loginbox{
+  width: 40%;
+  height: 50%;
+}
+
+.loginimg{
+  width: 50%;
+}
+
+.signform ,.loginform{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signform h1 , .loginform h1{
+  margin: 2vh;
+}
+
+.signinput{
+  margin: 2vh;
+  text-decoration: none;
+  border: none;
+  border-bottom: 1px solid black;
+  box-shadow: 5px 5px 5px rgb(223, 220, 220);
+  width: 80%;
+  /* font-size: 1.2rem; */
+}
+
+.signbtn{
+  margin: 1rem;
+  padding: 1%;
+  font-size: 1.2rem;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .Navbar {
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .Arrange {
+    display: flex;
+    margin: 0 5vw;
+  }
+
+  .link,
+  .icon {
+    display: none;
+  }
+
+  .linktab {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .linktab li {
+    margin-bottom: 2vh;
+    font-size: 1.2rem;
+  }
+
+  .menu {
+    margin-top: 3vh;
+  }
+
+  .bar1 {
+    transform: rotate(90deg);
+  }
+
+  .menubar {
+    width: 2.5rem;
+    height: 0.3rem;
+    background-color: skyblue;
+    border-radius: 0.5rem;
+    margin-top: 1.5vh;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  * {
+    font-size: 75%;
+  }
+
+  img {
+    width: 50%;
+  }
+
+  .menubar {
+    width: 2rem;
+    margin-top: 1vh;
+  }
+}
