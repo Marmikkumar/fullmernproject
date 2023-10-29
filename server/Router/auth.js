@@ -27,14 +27,14 @@ router.post('/register',(req,res)=>{
     User.findOne({email:email})
         .then((userExist)=>{
             if(userExist){
-                return res.status(404).json({error: "email already exist"})
+                return res.status(422).json({error: "email already exist"})
             }
         
             const user = new User({name,email,phone,work,password,cpassword});
 
             user.save().then(()=>{
                 return res.status(202).json({message: "register successful"})
-            }).catch((err)=>{return res.status(501).json({error: "failed to register"})})
+            }).catch((err)=>{return res.status(422).json({error: "failed to register"})})
         }).catch((err)=>{console.log(err)})
     
 })
@@ -80,6 +80,7 @@ router.post('/Login', async (req,res)=>{
 router.get('/about',middleware,(req,res)=>{
     res.send("hello to about page");
 })
+
 
 
 module.exports = router;

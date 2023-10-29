@@ -4,8 +4,14 @@ import "../styles.css";
 
 const About = () => {
   return (
-    <div>
+    <div className='aboutpage'>
       <Nav />
+      <div className='aboutbox'>
+        <div className='aboutimg'></div>
+        <div className='aboutcontent'>
+          
+        </div>
+      </div>
     </div>
   )
 }

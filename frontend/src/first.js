@@ -5,6 +5,7 @@ import About from "./components/about";
 import Contact from "./components/contact";
 import Login from "./components/login";
 import Signup from "./components/signup";
+import Errorpage from "./components/errorpage";
 
 
 function First() {
@@ -16,7 +17,7 @@ function First() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-
+        <Route path="*" element={<Errorpage />} />
       </Routes>
        
     </BrowserRouter>

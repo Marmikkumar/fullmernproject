@@ -56,7 +56,7 @@ body {
 
 /* ----------------------------------------   Registration  ---------------------------------------- */
 
-.signbox, .loginbox{
+.signbox, .loginbox , .contactbase{
   /* border: 2px solid black; */
   position: absolute;
   top: 60%;
@@ -127,6 +127,96 @@ body {
   color: white;
   border: none;
   border-radius: 0.2rem;
+}
+
+.contacttop{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.contactbox{
+  background: white;
+  border-radius: 0.2rem;
+  width: 20vw;
+  height: 10vh;
+  display: flex;
+}
+
+.contactbox p{
+  margin: 0.5rem 1rem;
+}
+
+.contacticon{
+  width: 15%;
+}
+
+.contacticon i{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.2rem;
+}
+
+.contactbase{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 40vw;
+}
+
+.msg{
+  margin: 1rem 0rem ;
+}
+
+.contactinput{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+.contactbtn{
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 0.2rem;
+  width: 10vw;
+  font-size: 1rem;
+  padding: 1%;
+  margin-bottom: 1rem;
+}
+
+
+/* --------------------------------   errorpage ------------------------------------------------ */
+
+.errorhead{
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 20rem;
+  color: white;
+}
+
+.errorcontent{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.errorbtn{
+  margin: 1rem;
+  padding: 1%;
+  font-size: 1rem;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 1rem;
 }
 
 @media only screen and (max-width: 800px) {

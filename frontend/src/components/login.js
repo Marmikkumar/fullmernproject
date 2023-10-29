@@ -1,10 +1,60 @@
-import React from 'react'
+import React , {useState} from 'react'
 import Nav from "./nav";
 import "../styles.css";
 import Loginimg from "../img/Loginimg.jpg";
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+  const Navigate = useNavigate();
+  const [user,setUser] = useState({
+    email:"",
+    password:""
+  })
+
+  const handleChange=(event)=>{
+    const {name,value} = event.target;
+
+    setUser({...user,[name]:value});
+  }
+
+  const handleSubmit = async(event)=>{
+    event.preventDefault();
+    try{
+      const {email,password} = user;
+      console.log(email);
+
+      const res= await fetch('http://localhost:5000/Login',{
+        method:"POST",
+        headers:{
+          "Content-Type" : "application/json"
+        },
+        body : JSON.stringify({
+          email,password
+        })
+      });
+
+      if (!res.ok) {
+        throw new Error("Network response was not ok.");
+      }
+
+      const data = await res.json();
+
+      if (data.status === 422 || !data) {
+        window.alert("Invalid Credentials");
+        console.log("Invalid credentials");
+      } else {
+        window.alert("login Successful");
+        console.log("login successful");
+        Navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      window.alert("An error occurred during registration.");
+    }
+    
+  }
+
   return (
     <div className='loginpage'>
       <Nav />
@@ -14,10 +64,10 @@ const Login = () => {
           <img src={Loginimg} alt="ph2"></img>
         </div>
         <div className='loginform'>
-          <form method='POST' >
+          <form method='POST' onSubmit={handleSubmit}>
               <h1>SignIn</h1>
-            <input className='signinput' type="text" name="email" placeholder='Enter Email'/>
-            <input className='signinput' type="password" name="password" placeholder='Enter Password'/>
+            <input className='signinput' type="text" onChange={handleChange} name="email" value={user.email} placeholder='Enter Email'/>
+            <input className='signinput' type="password" onChange={handleChange} name="password" value={user.password} placeholder='Enter Password'/>
             <button className='signbtn' type="submit">Login</button>
 
           </form>
