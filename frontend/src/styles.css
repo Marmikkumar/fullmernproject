@@ -56,7 +56,12 @@ body {
 
 /* ----------------------------------------   Registration  ---------------------------------------- */
 
-.signbox, .loginbox , .contactbase{
+.signpage , .loginpage , .homepage{
+  display: flex;
+  flex-direction: column;
+}
+
+.signbox, .loginbox , .contactbase , .aboutbox{
   /* border: 2px solid black; */
   position: absolute;
   top: 60%;
@@ -89,6 +94,8 @@ body {
   width: 45%;
   height: 65%;
 }
+
+
 
 .loginbox{
   width: 40%;
@@ -219,10 +226,85 @@ body {
   border-radius: 1rem;
 }
 
+/* --------------------------- about ------------------------------------- */
+
+.abooutpage{
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutimg{
+  width: 30%;
+}
+
+.aboutimg img{
+  width: 80%;
+  height: 40%;
+}
+
+.underline{
+  list-style: none;
+  text-align: left;
+}
+
+.underline li{
+  text-align: left;
+}
+
+.aboutcontent{
+  width: 70%;
+}
+
+.aboutright{
+  display: flex;
+  justify-content: space-between;
+  height: 40%;
+}
+
+.aboutedit{
+  margin-top: 3.5rem;
+  font-size: 1.2rem;
+}
+
+.aboutme{
+  height: 55%;
+}
+
+.spam{
+  border-bottom: 4px solid rgb(36, 193, 246);
+  margin-left: 0.2rem;
+}
+
+.abouthead{
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid grey;
+  word-spacing: 1rem;
+}
+
+.profile{
+  display: flex;
+  justify-content: space-between;
+}
+
+.profiletitle , .profiledetail{
+  list-style: none;
+  padding-left: 0%;
+
+}
+
+.profiletitle li , .profiledetail li{
+  text-align: left;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+
 @media only screen and (max-width: 800px) {
   .Navbar {
     justify-content: space-between;
     flex-direction: column;
+    z-index: 78;
   }
 
   .Arrange {
@@ -262,10 +344,12 @@ body {
   }
 }
 
-@media only screen and (max-width: 400px) {
-  * {
+@media only screen and (max-width: 500px) {
+  /* * {
     font-size: 75%;
-  }
+  } */
+
+  
 
   img {
     width: 50%;
@@ -274,5 +358,111 @@ body {
   .menubar {
     width: 2rem;
     margin-top: 1vh;
+  }
+
+  .signbox{
+    /* position: relative; */
+    top: 60%;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    z-index: 1;
+  }
+
+  .signform{
+    width: 100%;
+  }
+
+  .signform h1,.loginform h1{
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .signinput{
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+
+  .signimg{
+    width: 100%;
+  }
+
+  .signimg img{
+    height: 40vh;
+    width: 80%;
+  }
+  
+  .signbtn{
+    display: flex;
+    margin: 1rem auto;
+    font-size: 1.1rem;
+  }
+
+
+
+  /* ----- */
+
+  .loginbox{
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    width: 100%;
+    height: 70%;
+    margin-bottom: 0%;
+  }
+
+  .loginimg{
+    width: 100%;
+    height: 45vh;
+  }
+
+  .loginform{
+    width: 100%;
+  }
+
+
+  /* ----------------------- contact  ------------------ */
+
+  .contacttop{
+    display: flex;
+    flex-direction: column;
+    
+  }
+
+  .contactbox{
+    width: 70%;
+    display: flex;
+    margin: 1rem auto;
+  }
+
+  .contactbase{
+    top: 75vh;
+    width: 70%;
+    margin-bottom: 10vh;
+  }
+
+  .contactinput{
+    flex-direction: column;
+  }
+
+  .contactinput input{
+    margin-top: 1rem;
+    width: 95%;
+  }
+
+  .contactbtn{
+    display: flex;
+    margin: 2rem auto;
+    width: 20vw;
+  }
+ 
+  .errorhead{
+    font-size: 16rem;
+  }
+
+  .errorcontent{
+    top: 35%;
+    font-size: 1rem;
   }
 }
