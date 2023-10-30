@@ -227,6 +227,10 @@ body {
 }
 
 /* --------------------------- about ------------------------------------- */
+.aboutbox{
+  padding-top: 2rem;
+  height: 65%;
+}
 
 .abooutpage{
   display: flex;
@@ -244,11 +248,19 @@ body {
 
 .underline{
   list-style: none;
-  text-align: left;
+  padding-left: 1rem;
 }
 
 .underline li{
   text-align: left;
+  margin-top: 0.3rem;
+}
+
+
+.nameintro{
+  margin: 0%;
+  padding: 0%;
+  border: 1px solid red;
 }
 
 .aboutcontent{
@@ -272,7 +284,7 @@ body {
 
 .spam{
   border-bottom: 4px solid rgb(36, 193, 246);
-  margin-left: 0.2rem;
+  margin: 0.2rem;
 }
 
 .abouthead{
@@ -280,6 +292,7 @@ body {
   font-weight: bold;
   border-bottom: 2px solid grey;
   word-spacing: 1rem;
+  padding-left: 1rem;
 }
 
 .profile{
@@ -289,7 +302,7 @@ body {
 
 .profiletitle , .profiledetail{
   list-style: none;
-  padding-left: 0%;
+  padding-left: 1rem;
 
 }
 
@@ -297,6 +310,10 @@ body {
   text-align: left;
   margin-top: 0.5rem;
   font-size: 1.1rem;
+}
+
+.not{
+  display: none;
 }
 
 
@@ -464,5 +481,31 @@ body {
   .errorcontent{
     top: 35%;
     font-size: 1rem;
+  }
+
+  .aboutbox{
+    width: 80%;
+    height: 90%;
+    top: 60%;
+    flex-direction: column;
+  }
+
+  .aboutimg{
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    height: 55vh;
+  }
+
+  .aboutimg img{
+    z-index: 1;
+  }
+  .underline li{
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .aboutcontent{
+    width: 90%;
   }
 }
