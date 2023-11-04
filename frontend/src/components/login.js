@@ -22,7 +22,6 @@ const Login = () => {
     event.preventDefault();
     try{
       const {email,password} = user;
-      console.log(email);
 
       const res= await fetch('http://localhost:5000/Login',{
         method:"POST",
@@ -46,7 +45,7 @@ const Login = () => {
       } else {
         window.alert("login Successful");
         console.log("login successful");
-        Navigate("/login");
+        Navigate("/");
       }
     } catch (error) {
       console.error("Error:", error);

@@ -1,8 +1,38 @@
-import React from 'react';
+import React , {useEffect, useState} from 'react';
 import Nav from "./nav";
 import "../styles.css";
 
 const Contact = () => {
+  const [userData,setUserData] = useState('');
+
+  const CallAboutPage = async () =>{
+    try{
+      const res= await fetch('/contact',{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+
+      const data = await res.json();
+      console.log(data);
+      setUserData(data);
+
+      if(!res.status === 200){
+        const error =new Error (res.error);
+        throw error;
+      }
+    }
+    catch (err) {
+      console.log(err);
+    }
+    
+  }
+
+  useEffect(()=>{
+    CallAboutPage();
+  },[]);
+
   return (
     <div className='contactpage'>
       <Nav />
@@ -39,11 +69,11 @@ const Contact = () => {
 
       <div className='contactbase'>
         <h2>Get in touch</h2>
-        <div className='contactinput'>
-          <input type="text" placeholder='Your name' />
-          <input type="email" placeholder='Your email' />
-          <input type="text" placeholder='Your Phone' />
-        </div>
+        <form method='GET' className='contactinput'>
+          <input type="text" placeholder='your name' value={userData.name}></input>
+          <input type="email" placeholder='your email' value={userData.email} />
+          <input type="text" placeholder='Your Phone' value={userData.phone} />
+        </form>
         <textarea className='msg' rows='8' placeholder='type your message' />
 
         <button className='contactbtn' type='submit'>Send Message</button>

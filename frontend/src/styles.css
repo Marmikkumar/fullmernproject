@@ -5,6 +5,10 @@ body {
   background-color: antiquewhite;
 }
 
+button{
+  cursor: pointer;
+}
+
 .Navbar {
   width: 100vw;
   display: flex;
@@ -282,17 +286,21 @@ body {
   height: 55%;
 }
 
-.spam{
-  border-bottom: 4px solid rgb(36, 193, 246);
-  margin: 0.2rem;
-}
+
 
 .abouthead{
+  display: flex;
   font-size: 1.2rem;
   font-weight: bold;
   border-bottom: 2px solid grey;
   word-spacing: 1rem;
   padding-left: 1rem;
+}
+
+.spam{
+  border-bottom: 4px solid rgb(36, 193, 246);
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .profile{

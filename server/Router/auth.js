@@ -1,14 +1,13 @@
 const express= require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
-const jwt = require("jsonwebtoken");
+const authenticate = require("../middleware/authenticate");
+const cors = require('cors');
+const jwt= require('jsonwebtoken');
 
 const User= require("../Model/users");
 
-const middleware= (req,res,next) =>{
-    console.log("hello my middleware");
-    next();
-}
+router.use(cors());
 
 router.get('/',(req,res)=>{
     res.send("hello to home page");
@@ -75,12 +74,18 @@ router.post('/Login', async (req,res)=>{
     }
 
 
-})
+});
 
-router.get('/about',middleware,(req,res)=>{
-    res.send("hello to about page");
-})
+router.get('/about',authenticate ,(req,res)=>{
+    console.log("hello to about page");
+    console.log(rootUser);
+    res.send(req.rootUser);
+});
 
+router.get('/contact',authenticate, (req,res)=>{
+    console.log('hello to contact page');
+    res.send(req.rootUser);
+})
 
 
 module.exports = router;
