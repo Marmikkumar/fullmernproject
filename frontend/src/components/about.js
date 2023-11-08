@@ -12,7 +12,7 @@ const About = () => {
 
   const CallAboutPage = async () =>{
     try{
-      const res = await fetch('/about',{
+      const res = await fetch('http://localhost:5000/about',{
         method: "GET",
         headers: {
           	
@@ -29,8 +29,8 @@ const About = () => {
         const error =new Error (res.error);
         throw error;
       }
-    }catch(err){
-      console.log(err);
+    }catch(error){
+      console.error (error);
       Navigate("/login");
     }
     

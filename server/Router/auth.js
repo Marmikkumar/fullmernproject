@@ -2,12 +2,12 @@ const express= require("express");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 const authenticate = require("../middleware/authenticate");
-const cors = require('cors');
+// const cors = require('cors');
 const jwt= require('jsonwebtoken');
 
 const User= require("../Model/users");
 
-router.use(cors());
+// router.use(cors());
 
 router.get('/',(req,res)=>{
     res.send("hello to home page");
@@ -86,6 +86,13 @@ router.get('/contact',authenticate, (req,res)=>{
     console.log('hello to contact page');
     res.send(req.rootUser);
 })
+
+
+// router.get('/logout', (req,res)=>{
+//     console.log('hello to our Logout page');
+//     res.clearCookie('jwtoken', {path: '/'});
+//     res.status(200).send('User logout');
+// })
 
 
 module.exports = router;

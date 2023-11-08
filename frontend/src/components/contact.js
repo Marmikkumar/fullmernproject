@@ -7,7 +7,7 @@ const Contact = () => {
 
   const CallAboutPage = async () =>{
     try{
-      const res= await fetch('/contact',{
+      const res= await fetch('http://localhost:5000/contact',{
         method: "GET",
         headers: {
           "Content-Type": "application/json"

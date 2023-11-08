@@ -1,16 +1,20 @@
-import React , {useState} from 'react'
+import React , {useContext, useState} from 'react'
 import Nav from "./nav";
 import "../styles.css";
 import Loginimg from "../img/Loginimg.jpg";
 import { useNavigate } from 'react-router-dom';
+import { UserContext} from "../first";
 
 
 const Login = () => {
+
   const Navigate = useNavigate();
   const [user,setUser] = useState({
     email:"",
     password:""
   })
+
+  const {state, dispatch} = useContext(UserContext);
 
   const handleChange=(event)=>{
     const {name,value} = event.target;
@@ -43,6 +47,7 @@ const Login = () => {
         window.alert("Invalid Credentials");
         console.log("Invalid credentials");
       } else {
+        // dispatch({type:'USER' ,payload:true});
         window.alert("login Successful");
         console.log("login successful");
         Navigate("/");
@@ -53,6 +58,12 @@ const Login = () => {
     }
     
   }
+
+
+
+
+
+
 
   return (
     <div className='loginpage'>
